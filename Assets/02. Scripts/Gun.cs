@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-
+    //bullet effect
     Camera cam;
     public GameObject bulletImpact;
     ParticleSystem ps;
+
+
 
     void Start()
     {
