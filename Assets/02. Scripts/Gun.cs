@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
                 ps.Stop();
                 ps.Play();                                                                  //because it is a particle system effect, we need to give it a play command
 
-                if (hitInfo.transform.CompareTag("Enemy")) {
+                if (hitInfo.transform.gameObject.CompareTag("Enemy")) {
                     Destroy(hitInfo.transform.gameObject);
                 }
             }
