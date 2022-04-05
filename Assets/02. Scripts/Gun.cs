@@ -28,8 +28,19 @@ public class Gun : MonoBehaviour
                 ps.Stop();
                 ps.Play();                                                                  //because it is a particle system effect, we need to give it a play command
 
-                if (hitInfo.transform.gameObject.CompareTag("Enemy")) {
-                    Destroy(hitInfo.transform.gameObject);
+
+
+
+                if (hitInfo.transform.gameObject.CompareTag("Enemy")) {             //if the hit GO is Enemy
+                    Enemy enemy = hitInfo.transform.GetComponent<Enemy>();          //Get the component of the GO Enemy
+                    if (enemy != null) {
+                        enemy.ShotByGun();                                          //tell enemy it was shot
+                    }
+                    else {
+                        Debug.Log("Couldn't find Enemy Script in GO Enemy");
+                    }
+
+                    //Destroy(hitInfo.transform.gameObject);
                 }
             }
         }

@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     //State Machine
     public State state;
 
+    //HP
+    public EnemyHP enemyHP;
+
     public enum State { 
         Idle, 
         Walk, 
@@ -62,6 +65,7 @@ public class Enemy : MonoBehaviour
                                                                     //We are only triggering the animation once. 
     }
 
+
     private void UpdateWalk() {
         
         agent.SetDestination(target.transform.position);            //Tell Agent the destination
@@ -84,4 +88,13 @@ public class Enemy : MonoBehaviour
             EnemyHitManager.instance.Hit();
         }
     }
+    internal void ShotByGun() {
+        //decrease enemy HP
+        enemyHP.HP--;
+        //if Hp == 0, Destroy
+        if (enemyHP.HP <= 0) { 
+            Destroy(gameObject, 0.2f);
+        }
+    }
+
 }
