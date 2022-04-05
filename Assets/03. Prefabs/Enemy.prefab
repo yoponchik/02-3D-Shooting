@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 2529555628238304836}
   - component: {fileID: 3541138347551962029}
   - component: {fileID: 993758651}
+  - component: {fileID: 668401474753713634}
   m_Layer: 7
   m_Name: Canvas Enemy HP
   m_TagString: Untagged
@@ -333,6 +334,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
 --- !u!114 &993758651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4045217832814799779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829e7d7da7d455644b8e4bfc848eaa78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &668401474753713634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
