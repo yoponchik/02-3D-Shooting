@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private void UpdateIdle() {
         //look for Player
         target = GameObject.FindGameObjectWithTag("Player");
@@ -94,6 +95,13 @@ public class Enemy : MonoBehaviour
         //if Hp == 0, Destroy
         if (enemyHP.HP <= 0) { 
             Destroy(gameObject, 0.2f);
+        }
+    }
+    internal void HitByBomb() {
+        enemyHP.HP-= 2;
+        //if Hp == 0, Destroy
+        if (enemyHP.HP <= 0) {
+            Destroy(gameObject, 0.1f);
         }
     }
 
