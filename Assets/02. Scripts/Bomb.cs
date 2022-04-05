@@ -15,9 +15,17 @@ public class Bomb : MonoBehaviour
         rb.velocity = transform.forward * force;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnCollisionEnter(Collision other) {
+
+        int layer = 1 << LayerMask.NameToLayer("Enemy");
+
+        Collider[] cols = Physics.OverlapSphere(other.contacts[0].point, 1.5f, layer);
+        if (cols.Length > 0) {                                                              //if there is anything inside the cols array
+            for (int i = 0; i < cols.Length; i++) {
+                cols[i].gameObject.GetComponent<Enemy>().HitByBomb();
+            }
+        }
+        Destroy(gameObject);                                                                //Destroy GO Bomb
     }
+
 }
