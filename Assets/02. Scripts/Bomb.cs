@@ -8,6 +8,8 @@ public class Bomb : MonoBehaviour
     Rigidbody rb;
     public float force = 10;
 
+    public GameObject explosionFactory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class Bomb : MonoBehaviour
                 cols[i].gameObject.GetComponent<Enemy>().HitByBomb();
             }
         }
+        GameObject explosion = Instantiate(explosionFactory);
+        explosion.transform.position = other.contacts[0].point;
         Destroy(gameObject);                                                                //Destroy GO Bomb
     }
 
