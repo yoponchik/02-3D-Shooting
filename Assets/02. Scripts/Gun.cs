@@ -22,7 +22,11 @@ public class Gun : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) { 
             Ray ray = new Ray(cam.transform.position, cam.transform.forward);               //Create a ray from the camera pointing out
             RaycastHit hitInfo;                                                             //Create a Raycast variable
-            if (Physics.Raycast(ray, out hitInfo)) { 
+
+            //int layer = 1 << 8;
+            int layer = 1 << LayerMask.NameToLayer("Player");
+
+            if (Physics.Raycast(ray, out hitInfo, float.MaxValue, ~layer)) { 
                 bulletImpact.transform.position = hitInfo.point;                            //place the particle VFX at the hitpoint
                 bulletImpact.transform.forward = hitInfo.normal;
                 ps.Stop();
